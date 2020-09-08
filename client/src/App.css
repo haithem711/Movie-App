@@ -1,0 +1,66 @@
+.iconMovie{
+    cursor: pointer;
+    color:#ffd3a8;
+}
+.iconMovie:hover{
+    color:red
+}
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+.brand-logo,h2{font-family: 'Permanent Marker', cursive;}
+.label-file {
+    cursor: pointer;
+    color: #00b1ca;
+    font-weight: bold;
+    border:solid #00b1ca;
+    border-radius:5px
+}
+.label-file:hover {
+    color: red;
+    
+}
+
+
+.input-file {
+    display: none;
+}
+.progessBar{
+    height: 1rem;
+    width: 0%;
+    background-color: rgb(68, 212, 231);
+    color: white;
+    padding:2px
+  }
+  h5{font-family: 'Lobster', cursive;}
+  @media screen and (max-width: 600px) {
+    .horizontal {
+      display:flex;
+      flex-direction: column;
+      width: 100%;
+
+    }
+    .update{
+        width: 100%;
+    }
+    .imag{width:100%;margin: auto;}
+    .load{
+        margin-right: 150px;
+       
+    }
+  }
+  .imag{width:250px;}
+  .Center { 
+  
+   
+  
+    top: 50%; 
+    left: 50%; 
+    
+    margin-left: -100px; 
+} 
+.center {
+    margin: auto;
+    width: 50%;
+    margin-top:100px;
+    padding: 10px;
+  }
