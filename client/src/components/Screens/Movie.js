@@ -14,14 +14,14 @@ const[loading,setLoading]=useState(true)
 const[rating,setRating]=useState(0.5)
 const[genres,setGenre]=useState("")
 const[limit,setLimit]=useState(7)
-const [values, setValues] = useState({
+/*const [values, setValues] = useState({
     search: undefined,
     results: [],
     searched: false,
     message: ''
 });
 
-const { search, results} = values;
+const { search, results} = values;*/
 
 
     
@@ -30,14 +30,14 @@ const { search, results} = values;
         
 
 
-const handleChange = e => {
+/*const handleChange = e => {
  
     setValues({ ...values, search: e.target.value, searched: false, results: [] });
     axios.get(`movies/search?search=${search}`).then(res => {console.log(res)
         setValues({ ...values, results: res.data, searched: true, message: `${res.data.length} blogs found` })
         console.log(results.length);})
 };
-/*const searchSubmit = (e) => {
+const searchSubmit = (e) => {
     e.preventDefault();
     axios.get(`movies/search?search=${search}`).then(res => {console.log(res)
         setValues({ ...values, results: res.data, searched: true, message: `${res.data.length} blogs found` });
@@ -99,7 +99,7 @@ getData()
                         placeholder="Search movies"
                         id="icon_prefix2"
                         className="materialize-textarea"
-                        onChange={handleChange}
+                       //{/* onChange={handleChange}*/}
                     />
                    
                 </div>
@@ -111,8 +111,8 @@ getData()
 
     
 
-                {(loading)?<Loading/>:
-                (search) ? results.map(item => {
+                {       (loading)?<Loading/>:
+               /* (search) ? results.map(item => {
                     return (<div className="card" key={item._id} style={{ maxWidth: '250px', maxHeight: '500px' }}>
                         <div className="card-image">
                             <img style={{ maxHeight: '250px' }}  src={`http://localhost:5000/api/movies/photo/${item.slug}`}
@@ -148,7 +148,7 @@ getData()
 
                     </div>)
                 }
-                ): data.map(item => {
+                ):*/ data.map(item => {
                             return (<div className="card" key={item._id} style={{ maxWidth: '250px', maxHeight: '500px' }}>
                                 <div className="card-image">
                                     <img style={{ maxHeight: '250px' }} src={`http://localhost:5000/api/movies/photo/${item.slug}`}
