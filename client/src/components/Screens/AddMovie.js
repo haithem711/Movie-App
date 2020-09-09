@@ -76,8 +76,8 @@ const AddMovie = () => {
 
               <div className="row">
                 <div className="input-field col s6">
-                  <input value={title} id="first_name2" type="text" className="validate" onChange={(e) => setTitle(e.target.value)} />
-                  <label className="active" htmlFor="first_name2"> Title:</label>
+                  <input value={title} id="first_name" type="text" className="validate" onChange={(e) => setTitle(e.target.value)} />
+                  <label className="active" htmlFor="first_name"> Title:</label>
                   <select onChange={(e) => setGenre(e.target.value)} value={genres} className="browser-default">
                     <option disabled defaultValue>genres</option>
                     <option value="Action" >Action</option>
@@ -90,8 +90,8 @@ const AddMovie = () => {
                     <label className="active" htmlFor="first_name2"> Actors:</label>
                   </div>
                   <div className="input-field col s12">
-                    <input value={trailer} id="first_name2" type="text" className="validate" onChange={(e) => setTrailer(e.target.value)} />
-                    <label className="active" htmlFor="first_name2"> trailer:</label>
+                    <input value={trailer} id="first_name3" type="text" className="validate" onChange={(e) => setTrailer(e.target.value)} />
+                    <label className="active" htmlFor="first_name3"> trailer:</label>
                   </div>
                   <div className="input-field col s12">
                     <textarea id="textarea1" className="materialize-textarea" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>

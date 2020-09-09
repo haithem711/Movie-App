@@ -97,8 +97,8 @@ const Update = () => {
                             <label className="active" htmlFor="first_name2"> Actors:</label>
                         </div>
                         <div className="input-field col s12">
-                            <input value={trailer} placeholder={`${data.trailer}`} id="first_name2" type="text" className="validate" onChange={(e) => setTrailer(e.target.value)} />
-                            <label className="active" htmlFor="first_name2"> trailer:</label>
+                            <input value={trailer} placeholder={`${data.trailer}`} id="first_name3" type="text" className="validate" onChange={(e) => setTrailer(e.target.value)} />
+                            <label className="active" htmlFor="first_name3"> trailer:</label>
                         </div>
                         <div className="row">
                             <div className="input-field col s12">
