@@ -190,7 +190,7 @@ getData()
 
                 <div className="card" style={{ maxWidth: '250px', height: '250px' }}>
                     <div className="card-image">
-                        <img alt="Movies" src="https://lorempixel.com/250/250/nature/1" />
+                        <img alt="Movies" src="http://lorempixel.com/250/250/nature/1" />
                         <span className="card-title">Add Movies</span>
                     </div>
                     <div className="card-content" style={{ padding: '75px' }}>
