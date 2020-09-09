@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom";
 import axios from 'axios'
 import ReactStars from "react-rating-stars-component";
 import Loading from './Loading';
+import {APP_URL}from '../../config'
 const MovieTitle = () => {
   const { slug } = useParams();
   const [data, setData] = useState([])
    const[loading,setLoading]=useState(true)
   useEffect(() => {
     async function getData() { 
-    axios.get(`/moviess/${slug}`)
+    axios.get(`api/moviess/${slug}`)
       .then((res) => {
         console.log(res.data)
         setData(res.data)
@@ -28,7 +29,7 @@ const MovieTitle = () => {
     
 <div className="card horizontal">
 
-        <img className="imag" alt={data.title} src={`http://localhost:5000/api/movies/photo/${data.slug}`} />
+        <img className="imag" alt={data.title} src={`${APP_URL}/api/movies/photo/${data.slug}`} />
 
         <div className="card-stacked">
           <div className="card-content">

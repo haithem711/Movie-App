@@ -46,7 +46,7 @@ const AddMovie = () => {
     formData.append('rating', rating)
     formData.append('photo', photo)
     
-    axios.post('/create', formData, {
+    axios.post('api/create', formData, {
       headers: {
         Accept: 'application/json',
 

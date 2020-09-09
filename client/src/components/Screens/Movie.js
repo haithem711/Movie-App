@@ -5,6 +5,7 @@ import M from 'materialize-css'
 import axios from 'axios'
 import ReactStars from "react-rating-stars-component";
 import Loading from './Loading'
+import{APP_URL}from'../../config'
 const Movie = () => {
     
   //  const {state,dispatch} = useContext(MovieContext)
@@ -14,14 +15,14 @@ const[loading,setLoading]=useState(true)
 const[rating,setRating]=useState(0.5)
 const[genres,setGenre]=useState("")
 const[limit,setLimit]=useState(7)
-/*const [values, setValues] = useState({
+const [values, setValues] = useState({
     search: undefined,
     results: [],
     searched: false,
     message: ''
 });
 
-const { search, results} = values;*/
+const { search, results} = values;
 
 
     
@@ -30,14 +31,14 @@ const { search, results} = values;*/
         
 
 
-/*const handleChange = e => {
+const handleChange = e => {
  
     setValues({ ...values, search: e.target.value, searched: false, results: [] });
     axios.get(`movies/search?search=${search}`).then(res => {console.log(res)
         setValues({ ...values, results: res.data, searched: true, message: `${res.data.length} blogs found` })
         console.log(results.length);})
 };
-const searchSubmit = (e) => {
+/*const searchSubmit = (e) => {
     e.preventDefault();
     axios.get(`movies/search?search=${search}`).then(res => {console.log(res)
         setValues({ ...values, results: res.data, searched: true, message: `${res.data.length} blogs found` });
@@ -99,7 +100,7 @@ getData()
                         placeholder="Search movies"
                         id="icon_prefix2"
                         className="materialize-textarea"
-                       //{/* onChange={handleChange}*/}
+                       onChange={handleChange}
                     />
                    
                 </div>
@@ -112,10 +113,10 @@ getData()
     
 
                 {       (loading)?<Loading/>:
-               /* (search) ? results.map(item => {
+               (search) ? results.map(item => {
                     return (<div className="card" key={item._id} style={{ maxWidth: '250px', maxHeight: '500px' }}>
                         <div className="card-image">
-                            <img style={{ maxHeight: '250px' }}  src={`http://localhost:5000/api/movies/photo/${item.slug}`}
+                            <img style={{ maxHeight: '250px' }}  src={`${APP_URL}/api/movies/photo/${item.slug}`}
 
                                 alt={item.title} />
                             <span className="card-title">{item.title}</span>
@@ -148,7 +149,7 @@ getData()
 
                     </div>)
                 }
-                ):*/(data) && data.map(item => {
+                ):(data) && data.map(item => {
                             return (<div className="card" key={item._id} style={{ maxWidth: '250px', maxHeight: '500px' }}>
                                 <div className="card-image">
                                     <img style={{ maxHeight: '250px' }} src={`http://localhost:5000/api/movies/photo/${item.slug}`}

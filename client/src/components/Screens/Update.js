@@ -4,6 +4,7 @@ import ReactStars from "react-rating-stars-component";
 import axios from 'axios'
 import { useParams} from "react-router-dom";
 import Loading from './Loading';
+import { APP_URL } from '../../config'
 const Update = () => {
   
     const { slug } = useParams();
@@ -18,7 +19,7 @@ const Update = () => {
 
     useEffect(() => {
         async function getData() { 
-        axios.get(`/moviess/${slug}`)
+        axios.get(`/api/moviess/${slug}`)
             .then((res) => {
                 
                 setData(res.data)
@@ -54,7 +55,7 @@ const Update = () => {
         if (rating) { formData.set('rating', rating) }
         if (photo) { formData.set('photo', photo) }
 
-        axios.put(`/moviess/${slug}`, formData, {
+        axios.put(`/api/moviess/${slug}`, formData, {
             headers: {
                 Accept: 'application/json',
 
@@ -79,7 +80,7 @@ const Update = () => {
             <h2 className="header">Update Movie:</h2>
             <div className="card horizontal">
 
-                <img className="imag" alt="Movies" src={`http://localhost:5000/api/movies/photo/${data.slug}`} />
+                <img className="imag" alt="Movies" src={`${APP_URL}/api/movies/photo/${data.slug}`} />
 
                 <div className="card-stacked">
                     <div className="card-content">
