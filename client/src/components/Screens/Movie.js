@@ -82,7 +82,7 @@ getData()
                     <option value="Comedy">Comedy</option>
                     <option value="documentary">documentary</option>
                 </select>
-                <div style={{ marginTop: '20px' }}>
+                <div  style={{ marginTop: '20px',marginLeft:'20px' }}>
                     <ReactStars
                         count={5}
                         onChange={ratingChanged}
@@ -152,7 +152,7 @@ getData()
                 ):(data) && data.map(item => {
                             return (<div className="card" key={item._id} style={{ maxWidth: '250px', maxHeight: '500px' }}>
                                 <div className="card-image">
-                                    <img style={{ maxHeight: '250px' }} src={`http://localhost:5000/api/movies/photo/${item.slug}`}
+                                    <img style={{ maxHeight: '250px' }} src={`${APP_URL}/api/movies/photo/${item.slug}`}
 
                                         alt={item.title} />
                                     <span className="card-title">{item.title}</span>
