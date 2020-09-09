@@ -7,10 +7,7 @@ const {MONGOURI}=require('./config/keys')
 const port=process.env.PORT || 5000
 var movie = require('./routes/movies');
 
-process
-  .on('SIGTERM', shutdown('SIGTERM'))
-  .on('SIGINT', shutdown('SIGINT'))
-  .on('uncaughtException', shutdown('uncaughtException'));
+
 //create server mongoose
 mongoose.connect(MONGOURI,{useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex: true}, (err) => {
     if (err) throw err
@@ -34,19 +31,9 @@ if(process.env.NODE_ENV=="production"){
         res.sendFile(path.resolve(__dirname,'client','build','index.html'))
     })
 }
-setInterval(console.log.bind(console, 'tick'), 1000);
+
 //create server 
 app.listen(port,()=>{
     
     console.log(`server runnnig on port ${port}`)
 })
-function shutdown(signal) {
-    return (err) => {
-      console.log(`${ signal }...`);
-      if (err) console.error(err.stack || err);
-      setTimeout(() => {
-        console.log('...waited 5s, exiting.');
-        process.exit(err ? 1 : 0);
-      }, 5000).unref();
-    };
-  }
