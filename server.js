@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const bodyParser=require('body-parser')
 const Movies=require('./models/movies')
 const {MONGOURI}=require('./config/keys')
-const port=process.env.PORT || 5000
+const PORT=process.env.PORT || 5000
 var movie = require('./routes/movies');
 
 
@@ -33,7 +33,7 @@ if(process.env.NODE_ENV=="production"){
 }
 
 //create server 
-app.listen(port,()=>{
+app.listen(PORT,()=>{
     
-    console.log(`server runnnig on port ${port}`)
+    console.log(`server runnnig on port ${PORT}`)
 })
