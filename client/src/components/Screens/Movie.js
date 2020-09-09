@@ -49,7 +49,7 @@ const ratingChanged = (newRating) => {
   }
 
 const deleteMovie=(slug)=>{
-    axios.delete(`/delete/${slug}`).then((res)=>{console.log(res.data)
+    axios.delete(`api/delete/${slug}`).then((res)=>{console.log(res.data)
 const newData=data.filter((item)=>{
        return item.slug!==res.slug
 })
@@ -60,7 +60,7 @@ const newData=data.filter((item)=>{
 
 useEffect(() => {
     async function getData() { 
-    axios.get(`/movies/filtre?cat=${genres}&rat=${rating}&limit=${limit}`).then((result)=>{
+    axios.get(`api/movies/filtre?cat=${genres}&rat=${rating}&limit=${limit}`).then((result)=>{
     setData(result.data)
    setLoading(false)
 })}
