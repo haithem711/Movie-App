@@ -29,7 +29,7 @@ const MovieTitle = () => {
     
 <div className="card horizontal">
 
-        <img className="imag" alt={data.title} src={`${APP_URL}/api/movies/photo/${data.slug}`} />
+        <img className="imag"  src={`${APP_URL}/api/movies/photo/${data.slug}`} alt={data.title}/>
 
         <div className="card-stacked">
           <div className="card-content">

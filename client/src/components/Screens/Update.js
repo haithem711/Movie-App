@@ -80,7 +80,7 @@ const Update = () => {
             <h2 className="header">Update Movie:</h2>
             <div className="card horizontal">
 
-                <img className="imag" alt="Movies" src={`${APP_URL}/api/movies/photo/${data.slug}`} />
+                <img className="imag"  src={`${APP_URL}/api/movies/photo/${data.slug}`} alt={data.title} />
 
                 <div className="card-stacked">
                     <div className="card-content">
