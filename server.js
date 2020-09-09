@@ -9,7 +9,7 @@ var movie = require('./routes/movies');
 
 
 //create server mongoose
-mongoose.connect(MONGOURI, {useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex: true}, (err) => {
+mongoose.connect(MONGOURI,{useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex: true}, (err) => {
     if (err) throw err
     console.log('data base connected...')
 })
