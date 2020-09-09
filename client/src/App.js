@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from 'react';
-import Home from './components/Screens/Home'
+import Movie from './components/Screens/Movie'
 import About from './components/Screens/About'
 import Navbare from './components/Navbar'
 import MovieTitle from './components/Screens/MovieTitle'
@@ -7,7 +7,6 @@ import Update from './components/Screens/Update'
 import { reducer, initialState } from './reducers/reducer'
 import './App.css';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   BrowserRouter
@@ -22,7 +21,7 @@ const Routing = () => {
       <About />
     </Route>
      <Route exact path="/">
-      <Home />
+      <Movie />
     </Route>
     <Route exact path="/:slug">
       <MovieTitle />

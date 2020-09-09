@@ -24,13 +24,7 @@
 .input-file {
     display: none;
 }
-.progessBar{
-    height: 1rem;
-    width: 0%;
-    background-color: rgb(68, 212, 231);
-    color: white;
-    padding:2px
-  }
+
   h5{font-family: 'Lobster', cursive;}
   @media screen and (max-width: 600px) {
     .horizontal {

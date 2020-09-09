@@ -1,14 +1,13 @@
-import React,{useState,useContext,useRef,useEffect} from 'react'
-import M, { Modal } from 'materialize-css'
+import React,{useState,useRef,useEffect} from 'react'
+import M from 'materialize-css'
 import axios from 'axios'
-import {MovieContext}from'../../App'
 import ReactStars from "react-rating-stars-component";
-import Loading from './Loading'
+
 const AddMovie = () => {
  
    //const {state,dispatch}=useContext(MovieContext)
   
-      const[loading,setLoading]=useState(true)
+   
       const[title,setTitle]=useState('')
       const[photo,setPhoto]=useState('')
       const[description,setDescription]=useState('')
@@ -28,15 +27,15 @@ const AddMovie = () => {
     }
 
       const ratingChanged = (newRating) => {
-        console.log(newRating);
+        
         setRating(newRating)
-        console.log(rating)
+       
        
       };
     
   const Addmovie = () => {
     
-    setLoading(true)
+   
     var formData = new FormData()
 
     formData.append('description', description)
@@ -46,16 +45,16 @@ const AddMovie = () => {
     formData.append('genres', genres)
     formData.append('rating', rating)
     formData.append('photo', photo)
-    console.log(formData)
+    
     axios.post('/create', formData, {
       headers: {
         Accept: 'application/json',
 
       },
     }).then((res) => {
-      console.log(res.data)
+      
       M.toast({ html: 'uploaded successfully', classes: '#66bb6a green lighten-1' })
-      setLoading(false)
+      
       M.Modal.getInstance(addModal.current).close()
       })
 

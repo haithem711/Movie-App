@@ -7,9 +7,9 @@ const About = () => {
         
         <h2 className="header">Movie App</h2>
        
-   <div  style={{ height:'300px' }} className="card horizontal">
+   <div   className="card horizontal">
    
-           <img className="imag" src='https://raw.githubusercontent.com/alDuncanson/react-hooks-snippets/master/icon.png'/>
+           <img className="imag" alt="title" src='https://raw.githubusercontent.com/alDuncanson/react-hooks-snippets/master/icon.png'/>
    
            <div className="card-stacked">
              <div className="card-content">

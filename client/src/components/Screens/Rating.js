@@ -1,9 +1,9 @@
-import React,{useState} from 'react'
+import React from 'react'
 import ReactStars from "react-rating-stars-component";
 const Rating = () => {
   
-  const[rating,setRating]=useState('')
-const ratingChanged = (newRating) => {console.log(newRating);setRating(newRating) }
+  
+const ratingChanged = (newRating) => {console.log(newRating) }
        
       
         

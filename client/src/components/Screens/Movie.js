@@ -1,23 +1,17 @@
-import React,{useState,useEffect,useContext} from 'react'
-import Rating from './Rating'
+import React,{useState,useEffect} from 'react'
 import AddMovie from './AddMovie'
-import MovieContext from '../../App'
-import queryString from 'query-string'
-import{Link,useHistory} from'react-router-dom'
+import{Link} from'react-router-dom'
 import M from 'materialize-css'
 import axios from 'axios'
 import ReactStars from "react-rating-stars-component";
-import Update from './Update'
 import Loading from './Loading'
 const Movie = () => {
     
   //  const {state,dispatch} = useContext(MovieContext)
-  const history=useHistory()
-const[data,setData]=useState({
-    filtre:[],
-   })
+  //const history=useHistory()
+const[data,setData]=useState([])
 const[loading,setLoading]=useState(true)
-const[rating,setRating]=useState("0.5")
+const[rating,setRating]=useState(0.5)
 const[genres,setGenre]=useState("")
 const[limit,setLimit]=useState(7)
 const [values, setValues] = useState({
@@ -27,7 +21,7 @@ const [values, setValues] = useState({
     message: ''
 });
 
-const { search, results, searched, message } = values;
+const { search, results} = values;
 
 
     
@@ -51,7 +45,7 @@ const handleChange = e => {
 };*/
 const ratingChanged = (newRating) => {
     setRating(newRating)
-    setData({...data,rat:newRating})
+   
   }
 
 const deleteMovie=(slug)=>{
@@ -65,16 +59,18 @@ const newData=data.filter((item)=>{
 }
 
 useEffect(() => {
-    axios.get(`/movies/filtre?cat=${genres}&rat=${rating}&limit=${limit}`).then((result)=>{console.log(result)
-    setData({...data,filtre:result.data})
+    async function getData() { 
+    axios.get(`/movies/filtre?cat=${genres}&rat=${rating}&limit=${limit}`).then((result)=>{
+    setData(result.data)
    setLoading(false)
-console.log(data)})
+})}
+getData()
 }, [data])
     return (
 
 
         <div>
-            <h1 style={{ textAlign: "center" }}>MOvies App React Hooks</h1>
+            <h2 style={{ textAlign: "center",color:'#2a62ff' }}>Movies App React Hooks</h2>
             <div style={{ display: "flex", margin: '50px', flexWrap: 'wrap' }}>
                 <h4 >Filtre:</h4>
 
@@ -119,7 +115,7 @@ console.log(data)})
                 (search) ? results.map(item => {
                     return (<div className="card" key={item._id} style={{ maxWidth: '250px', maxHeight: '500px' }}>
                         <div className="card-image">
-                            <img style={{ maxHeight: '250px' }} src={`http://localhost:5000/api/movies/photo/${item.slug}`}
+                            <img style={{ maxHeight: '250px' }}  src={`http://localhost:5000/api/movies/photo/${item.slug}`}
 
                                 alt={item.title} />
                             <span className="card-title">{item.title}</span>
@@ -152,7 +148,7 @@ console.log(data)})
 
                     </div>)
                 }
-                ): data.filtre.map(item => {
+                ): data.map(item => {
                             return (<div className="card" key={item._id} style={{ maxWidth: '250px', maxHeight: '500px' }}>
                                 <div className="card-image">
                                     <img style={{ maxHeight: '250px' }} src={`http://localhost:5000/api/movies/photo/${item.slug}`}
@@ -194,7 +190,7 @@ console.log(data)})
 
                 <div className="card" style={{ maxWidth: '250px', height: '250px' }}>
                     <div className="card-image">
-                        <img src="https://lorempixel.com/250/250/nature/1" />
+                        <img alt="Movies" src="https://lorempixel.com/250/250/nature/1" />
                         <span className="card-title">Add Movies</span>
                     </div>
                     <div className="card-content" style={{ padding: '75px' }}>

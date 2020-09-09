@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import M, { Modal } from 'materialize-css'
+import M from 'materialize-css'
 import ReactStars from "react-rating-stars-component";
 import axios from 'axios'
-import { useParams, useHistory } from "react-router-dom";
+import { useParams} from "react-router-dom";
 import Loading from './Loading';
 const Update = () => {
-    document.addEventListener('DOMContentLoaded', function () {
-        var elems = document.querySelectorAll('.modal');
-        var instances = M.Modal.init(elems);
-    });
-    const history = useHistory()
+  
     const { slug } = useParams();
     const[loading,setLoading]=useState(true)
-    const [title, setTitle] = useState('')
     const [data, setData] = useState([])
     const [photo, setPhoto] = useState('')
     const [description, setDescription] = useState('')
@@ -22,13 +17,15 @@ const Update = () => {
     const [trailer, setTrailer] = useState('')
 
     useEffect(() => {
+        async function getData() { 
         axios.get(`/moviess/${slug}`)
             .then((res) => {
-                console.log(res.data)
+                
                 setData(res.data)
                 setLoading(false)
 
-            })
+            })}
+            getData()
 
     }, [])
 
@@ -36,24 +33,23 @@ const Update = () => {
     const handleChange = (e) => {
 
         const photo = e.target.files[0]; // accesing file
-        console.log(photo);
+        
         setPhoto(photo); // storing file
     }
 
     const ratingChanged = (newRating) => {
-        console.log(newRating);
+        
         setRating(newRating)
-        console.log(rating)
+       
 
     };
 
-    const Updatemovies = (movies) => {
+    const Updatemovies = () => {
 
         var formData = new FormData()
         if (description) { formData.set('description', description) }
         if (actors) { formData.set('actors', actors) }
         if (trailer) { formData.set('trailer', trailer) }
-        console.log(genres)
         if (genres) { formData.set('genres', genres) }
         if (rating) { formData.set('rating', rating) }
         if (photo) { formData.set('photo', photo) }
@@ -83,7 +79,7 @@ const Update = () => {
             <h2 className="header">Update Movie:</h2>
             <div className="card horizontal">
 
-                <img className="imag" src={`http://localhost:5000/api/movies/photo/${data.slug}`} />
+                <img className="imag" alt="Movies" src={`http://localhost:5000/api/movies/photo/${data.slug}`} />
 
                 <div className="card-stacked">
                     <div className="card-content">

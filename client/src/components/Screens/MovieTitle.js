@@ -8,12 +8,14 @@ const MovieTitle = () => {
   const [data, setData] = useState([])
    const[loading,setLoading]=useState(true)
   useEffect(() => {
+    async function getData() { 
     axios.get(`/moviess/${slug}`)
       .then((res) => {
         console.log(res.data)
         setData(res.data)
         setLoading(false)
-      })
+      })}
+      getData()
 
   }, [])
 
@@ -26,7 +28,7 @@ const MovieTitle = () => {
     
 <div className="card horizontal">
 
-        <img className="imag" src={`http://localhost:5000/api/movies/photo/${data.slug}`} />
+        <img className="imag" alt={data.title} src={`http://localhost:5000/api/movies/photo/${data.slug}`} />
 
         <div className="card-stacked">
           <div className="card-content">
@@ -49,7 +51,7 @@ const MovieTitle = () => {
           </div>
         </div>
       </div>
-      <iframe width="100%" height="600" style={{ marginBottom: '50px' }}
+      <iframe width="100%" height="600" title={data.title} style={{ marginBottom: '50px' }}
         src={`${data.trailer}`}>
       </iframe>
       </>
