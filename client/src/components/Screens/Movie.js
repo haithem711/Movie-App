@@ -148,7 +148,7 @@ getData()
 
                     </div>)
                 }
-                ):*/ data.map(item => {
+                ):*/(data) && data.map(item => {
                             return (<div className="card" key={item._id} style={{ maxWidth: '250px', maxHeight: '500px' }}>
                                 <div className="card-image">
                                     <img style={{ maxHeight: '250px' }} src={`http://localhost:5000/api/movies/photo/${item.slug}`}
